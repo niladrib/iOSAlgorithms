@@ -48,14 +48,17 @@
 }
 
 -(void) buildHeap{
-//    for(NSInteger i = (NSInteger)floor((self.heapArray.count-1)/2);
-//        i >= 0; i--){
-//        [self heapifyAtIdx:i];
-//    }
-    for(NSInteger i = self.heapArray.count -1;
+    for(NSInteger i = (NSInteger)floor((self.heapArray.count-1)/2);
         i >= 0; i--){
         [self heapifyAtIdx:i];
     }
+    /**
+     if we chose we could call heapify on the entire array(as long as we go backwards from the end). Starting at the middle is only an optimization
+     */
+//    for(NSInteger i = self.heapArray.count -1;
+//        i >= 0; i--){
+//        [self heapifyAtIdx:i];
+//    }
 
 }
 
@@ -66,21 +69,6 @@
 +(NSArray*) heapSort:(NSArray*) inArray{
     Heap* h = [[Heap alloc] initWithArray:inArray];
     [h buildHeap];
-//    for(NSInteger i=1; i < h.heapArray.count; i++){
-//        [h heapifyAtIdx:i];
-//    }
-//    return [h.heapArray copy];
-
-//    for(NSInteger i=h.heapArray.count-1; i >0; i--){
-//        [h swapElement:0 with:i];
-//        id max = h.heapArray[i];
-//        NSRange r;
-//        r.location = 0;
-//        r.length = i;
-//        NSArray* a2 = [h.heapArray subarrayWithRange:r];
-//        h = [[Heap alloc] initWithArray:a2];
-//        NSMutableArray
-//    }
     
     NSMutableArray* sortedArray = [NSMutableArray new];
     while(h.heapArray.count>1){
@@ -95,6 +83,10 @@
         [a2 removeLastObject];
         [a2 insertObject:lastElem atIndex:0];
         h = [[Heap alloc] initWithArray:a2];
+        /**
+         Note - to implement a priority queue we have to do this only 
+         once - after removing the top element
+         */
         [h heapifyAtIdx:0];
         NSLog(@"loc=%ld len=%ld top=%@ a2=%@", r.location, r.length,
               [sortedArray lastObject],
