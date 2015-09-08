@@ -16,6 +16,7 @@
 		38AB3FCF1B9E3AE600FA15D8 /* AlgorithmsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB3FCE1B9E3AE600FA15D8 /* AlgorithmsTests.m */; };
 		38AB3FDA1B9E3B4700FA15D8 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB3FD91B9E3B4700FA15D8 /* MainScreenViewController.m */; };
 		38AB3FDD1B9E3BAB00FA15D8 /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB3FDC1B9E3BAB00FA15D8 /* QuickSort.m */; };
+		38AB3FE01B9E5FC200FA15D8 /* Heap.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB3FDF1B9E5FC200FA15D8 /* Heap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		38AB3FD91B9E3B4700FA15D8 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
 		38AB3FDB1B9E3BAB00FA15D8 /* QuickSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
 		38AB3FDC1B9E3BAB00FA15D8 /* QuickSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSort.m; sourceTree = "<group>"; };
+		38AB3FDE1B9E5FC200FA15D8 /* Heap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heap.h; sourceTree = "<group>"; };
+		38AB3FDF1B9E5FC200FA15D8 /* Heap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				38AB3FD91B9E3B4700FA15D8 /* MainScreenViewController.m */,
 				38AB3FDB1B9E3BAB00FA15D8 /* QuickSort.h */,
 				38AB3FDC1B9E3BAB00FA15D8 /* QuickSort.m */,
+				38AB3FDE1B9E5FC200FA15D8 /* Heap.h */,
+				38AB3FDF1B9E5FC200FA15D8 /* Heap.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38AB3FBB1B9E3AE500FA15D8 /* ViewController.m in Sources */,
+				38AB3FE01B9E5FC200FA15D8 /* Heap.m in Sources */,
 				38AB3FDA1B9E3B4700FA15D8 /* MainScreenViewController.m in Sources */,
 				38AB3FDD1B9E3BAB00FA15D8 /* QuickSort.m in Sources */,
 				38AB3FB81B9E3AE500FA15D8 /* AppDelegate.m in Sources */,

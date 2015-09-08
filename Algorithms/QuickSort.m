@@ -14,6 +14,13 @@
     return [QuickSort partitionAndSort:input];
 }
 
++(void) swapId:(NSInteger) idx1 with:(NSInteger) idx2 inArray:(NSMutableArray*) a{
+    id e1 = a[idx1];
+    id e2 = a[idx2];
+    a[idx1] = e2;
+    a[idx2] = e1;
+}
+
 +(NSArray*) partitionAndSort:(NSArray*) inputArray{
     if(!inputArray || inputArray.count==0)
         return nil;
@@ -25,11 +32,10 @@
     //pivot
     NSInteger currIdx = 0;
     //replace first element withe pivot
-    NSNumber* first = mutableInput[0];
-    NSNumber* pivot = mutableInput[pivotIdx];
-    mutableInput[0] = pivot;
-    mutableInput[pivotIdx] = first;
+    [self swapId:0 with:pivotIdx inArray:mutableInput];
     pivotIdx = 0;
+    NSNumber* pivot = mutableInput[pivotIdx];
+    BOOL isAllequalElements = YES;
     for(currIdx = 1 ; currIdx < mutableInput.count; currIdx++){
         if([mutableInput[currIdx] integerValue] <
            [pivot integerValue]){
@@ -39,16 +45,30 @@
                 mutableInput[i+1] = mutableInput[i];
             }
             pivotIdx++;
+            isAllequalElements = NO;
         }
+        else if ([mutableInput[currIdx] integerValue] !=
+                 [pivot integerValue]){
+            isAllequalElements = NO;
+        }
+    }
+    if (isAllequalElements) {
+        return mutableInput;//optimization
     }
     mutableInput[pivotIdx] = pivot;
     NSRange leftRange;
     leftRange.location = 0;
-    leftRange.length = (pivotIdx == 0)? 1 : pivotIdx;
+//    leftRange.length = (pivotIdx == 0)? 1 : pivotIdx;
+    leftRange.length = pivotIdx;
+    
     NSLog(@"input=%@ pivot=%@ pivotIdx=%ld", inputArray, pivot, pivotIdx);
     NSRange rightRange;
-    rightRange.location = (pivotIdx == 0)? 1 : pivotIdx;
-    rightRange.length = (pivotIdx == 0)? (mutableInput.count -1): (mutableInput.count - pivotIdx);
+//    rightRange.location = (pivotIdx == 0)? 1 : pivotIdx;
+//    rightRange.length = (pivotIdx == 0)? (mutableInput.count -1): (mutableInput.count - pivotIdx);
+    rightRange.location = pivotIdx;
+    rightRange.length = (mutableInput.count - pivotIdx);
+
+    
     NSArray* left = [mutableInput subarrayWithRange:leftRange];
     NSArray* right = [mutableInput subarrayWithRange:rightRange];
     NSLog(@"left.location=%lu left.length=%lu right.location=%lu right.length=%lu",

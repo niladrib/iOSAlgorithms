@@ -8,6 +8,8 @@
 
 #import "MainScreenViewController.h"
 #import "QuickSort.h"
+#import "Heap.h"
+
 @interface MainScreenViewController ()
 
 @end
@@ -17,6 +19,14 @@
 - (IBAction)clickedQuickSort:(id)sender {
     NSArray* input = @[@1, @100, @150, @7, @0, @0, @99, @75, @75, @6, @125];
     NSLog(@"in=%@ out=%@", input, [QuickSort doQuickSort:input]);
+}
+- (IBAction)clickedHeapSort:(id)sender {
+    NSArray* input = @[@1, @100, @150, @700, @0, @0, @999, @75, @75, @6, @125];
+    Heap* h = [[Heap alloc] initWithArray:input];
+    [h buildHeap];
+    NSLog(@"heap=%@", h);
+    NSArray* sorted = [Heap heapSort:input];
+    NSLog(@"in=%@ out=%@", input, sorted);
 }
 
 - (void)viewDidLoad {
